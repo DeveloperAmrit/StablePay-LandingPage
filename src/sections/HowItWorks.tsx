@@ -38,7 +38,7 @@ const Node = ({
     gold: 'border-gold-200 bg-gold-50',
   } as const
   return (
-    <div className={`w-full rounded-2xl border px-4 py-3.5 text-center shadow-xs md:w-auto md:min-w-[9.5rem] ${tones[tone]}`}>
+    <div className={`w-full rounded-2xl border px-4 py-3.5 text-center shadow-xs lg:w-auto lg:min-w-[8rem] ${tones[tone]}`}>
       <p className="text-sm font-semibold text-ink-900">{title}</p>
       <p className="mt-0.5 text-xs text-ink-400">{sub}</p>
     </div>
@@ -46,13 +46,13 @@ const Node = ({
 }
 
 const Connector = ({ label }: { label: string }) => (
-  <div className="flex shrink-0 flex-col items-center gap-1 py-1 md:flex-1 md:py-0">
+  <div className="flex shrink-0 flex-col items-center gap-1 py-1 lg:flex-1 lg:py-0">
     <span className="whitespace-nowrap rounded-full bg-white px-2 py-0.5 font-mono text-[0.6875rem] text-ink-400 ring-1 ring-line">
       {label}
     </span>
     <div className="flex w-full items-center justify-center">
-      <span className="hidden h-px flex-1 bg-line md:block" />
-      <ArrowRight className="h-4 w-4 rotate-90 text-ink-300 md:rotate-0" />
+      <span className="hidden h-px flex-1 bg-line lg:block" />
+      <ArrowRight className="h-4 w-4 rotate-90 text-ink-300 lg:rotate-0" />
     </div>
   </div>
 )
@@ -71,7 +71,7 @@ const Flow = ({
       <h4 className="text-[0.9375rem] font-semibold text-ink-900">{label}</h4>
       <p className="text-xs text-ink-400">{note}</p>
     </div>
-    <div className="flex flex-col items-center md:flex-row">{children}</div>
+    <div className="flex flex-col items-center lg:flex-row">{children}</div>
   </div>
 )
 
@@ -110,7 +110,7 @@ export const HowItWorks = () => (
             very same transaction — they never have to swap first.
           </p>
 
-          <div className="mt-6 grid gap-4 lg:grid-cols-2">
+          <div className="mt-6 grid gap-4">
             <Flow label="Customer holds stablecoins" note="ERC-20 transfer">
               <Node title="Customer wallet" sub="holds SC" tone="neutral" />
               <Connector label="transfer(you, 25 SC)" />
@@ -119,7 +119,7 @@ export const HowItWorks = () => (
 
             <Flow label="Customer holds only the native coin" note="mint on payment">
               <Node title="Customer wallet" sub="holds ETH" tone="neutral" />
-              <Connector label="mint(you) · 0.0128 ETH" />
+              <Connector label="mint(you)" />
               <Node title="Tectonic" sub="reserve + oracle" tone="brand" />
               <Connector label="mints SC" />
               <Node title="Your wallet" sub="+25.00 SC" tone="gold" />

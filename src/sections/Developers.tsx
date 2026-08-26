@@ -10,7 +10,11 @@ const snippets: Snippet[] = [
     label: 'Install',
     file: 'terminal',
     lang: 'bash',
-    code: `npm install stablepay-sdk`,
+    code: `npm install stablepay-sdk
+
+# or
+pnpm add stablepay-sdk
+yarn add stablepay-sdk`,
   },
   {
     id: 'configure',
@@ -82,7 +86,7 @@ export const Developers = () => (
           </div>
         </Reveal>
 
-        <Reveal delay={0.1}>
+        <Reveal delay={0.1} className="min-w-0">
           <CodeCard snippets={snippets} />
         </Reveal>
       </div>

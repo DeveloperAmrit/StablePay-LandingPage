@@ -107,7 +107,7 @@ export const CodeCard = ({ snippets }: { snippets: Snippet[] }) => {
         <span className="font-mono text-[0.6875rem] text-white/35">{snippet.file}</span>
       </div>
 
-      <div className="overflow-x-auto px-5 py-5">
+      <div className="min-h-[16rem] overflow-x-auto px-5 py-5">
         <pre className="font-mono text-[0.8125rem] leading-[1.75] text-[#C9D4E8]">
           <code>{highlight(snippet.code)}</code>
         </pre>

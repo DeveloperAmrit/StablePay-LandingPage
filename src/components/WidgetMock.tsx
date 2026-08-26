@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
-import { Check, ChevronDown, Wallet } from 'lucide-react'
+import { ChevronDown, Wallet } from 'lucide-react'
 import LogoMark from '@/assets/logo.svg'
 
 const Row = ({ label, value, dotClass }: { label: string; value: string; dotClass: string }) => (
@@ -77,31 +77,6 @@ export const WidgetMock = () => (
       </div>
     </motion.div>
 
-    {/* Floating proof-points, offset so they read as part of the scene */}
-    <motion.div
-      animate={{ y: [0, -8, 0] }}
-      transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut', delay: 0.6 }}
-      className="absolute -left-4 top-[62%] hidden items-center gap-2 rounded-2xl border border-line bg-white px-3.5 py-2.5 shadow-card sm:flex md:-left-10"
-    >
-      <span className="flex h-7 w-7 items-center justify-center rounded-full bg-forest-50">
-        <Check className="h-3.5 w-3.5 text-forest-500" strokeWidth={3} />
-      </span>
-      <span className="text-xs">
-        <span className="block font-semibold text-ink-900">Paid in 1 transaction</span>
-        <span className="block text-ink-400">No intermediary server</span>
-      </span>
-    </motion.div>
-
-    <motion.div
-      animate={{ y: [0, 8, 0] }}
-      transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
-      className="absolute -right-3 top-8 hidden rounded-2xl border border-line bg-white px-3.5 py-2.5 shadow-card sm:block md:-right-8"
-    >
-      <span className="text-xs">
-        <span className="block font-semibold text-ink-900">Tectonic mints to you</span>
-        <span className="block text-ink-400">Customer pays ETH · you hold SC</span>
-      </span>
-    </motion.div>
   </div>
 )
 

@@ -37,22 +37,22 @@ export const Networks = () => (
       />
 
       <div className="mt-14 grid gap-5 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)]">
-        <Reveal>
+        <Reveal className="min-w-0">
           <div className="card overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full min-w-[32rem] text-left">
                 <thead>
                   <tr className="border-b border-line bg-surface-subtle">
-                    <th scope="col" className="px-5 py-3 text-xs font-semibold uppercase tracking-wider text-ink-400">
+                    <th scope="col" className="whitespace-nowrap px-5 py-3 text-xs font-semibold uppercase tracking-wider text-ink-400">
                       Network
                     </th>
-                    <th scope="col" className="px-5 py-3 text-xs font-semibold uppercase tracking-wider text-ink-400">
+                    <th scope="col" className="whitespace-nowrap px-5 py-3 text-xs font-semibold uppercase tracking-wider text-ink-400">
                       Chain ID
                     </th>
-                    <th scope="col" className="px-5 py-3 text-xs font-semibold uppercase tracking-wider text-ink-400">
+                    <th scope="col" className="whitespace-nowrap px-5 py-3 text-xs font-semibold uppercase tracking-wider text-ink-400">
                       Native coin
                     </th>
-                    <th scope="col" className="px-5 py-3 text-xs font-semibold uppercase tracking-wider text-ink-400">
+                    <th scope="col" className="whitespace-nowrap px-5 py-3 text-xs font-semibold uppercase tracking-wider text-ink-400">
                       Tectonic
                     </th>
                   </tr>
@@ -61,7 +61,7 @@ export const Networks = () => (
                   {networks.map((network) => (
                     <tr key={network.chainId} className="border-b border-line-soft last:border-0">
                       <td className="px-5 py-4 text-[0.9375rem] font-medium text-ink-900">{network.name}</td>
-                      <td className="px-5 py-4 font-mono text-[0.8125rem] text-ink-500">{network.chainId}</td>
+                      <td className="px-5 py-4 font-mono text-[0.8125rem] tabular-nums text-ink-500">{network.chainId}</td>
                       <td className="px-5 py-4 text-[0.9375rem] text-ink-500">{network.coin}</td>
                       <td className="px-5 py-4">
                         <Pill status={network.status} />
@@ -74,7 +74,7 @@ export const Networks = () => (
           </div>
         </Reveal>
 
-        <Reveal delay={0.1}>
+        <Reveal delay={0.1} className="min-w-0">
           <div className="card-lift h-full bg-white p-6">
             <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-brand-50 text-brand-600">
               <Terminal className="h-[22px] w-[22px]" />
