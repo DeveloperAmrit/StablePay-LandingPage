@@ -1,0 +1,72 @@
+import { ChevronDown } from 'lucide-react'
+import Reveal from '@/components/Reveal'
+import SectionHeading from '@/components/SectionHeading'
+import { site } from '@/lib/site'
+
+const faqs = [
+  {
+    q: 'Do I need to run a backend?',
+    a: 'No. The widget runs entirely in your customer’s browser, reading prices over a public RPC and sending the transaction through their wallet. There is no StablePay server in the path — which is also why there is no StablePay outage that can stop you taking money.',
+  },
+  {
+    q: 'Does StablePay ever hold my funds?',
+    a: 'Never. There is no account to open and no balance to withdraw. The payment moves from your customer’s wallet to the address you configured, inside the transaction they sign. StablePay is code on your page, not a counterparty.',
+  },
+  {
+    q: 'What does my customer need?',
+    a: 'An EVM wallet in their browser — MetaMask or anything compatible. If they are on the wrong network the widget prompts them to switch, and if they have never added the chain it offers to add it. They do not create a StablePay account, because there is no such thing.',
+  },
+  {
+    q: 'What if the customer only holds the native coin?',
+    a: 'They can still pay, and they do not need to swap first. The widget quotes the native-coin cost from the on-chain oracle, and Tectonic mints stablecoins directly to your address in the same transaction. You never take on the volatile asset.',
+  },
+  {
+    q: 'Are there chargebacks?',
+    a: 'No. On-chain settlement is final, so a payment cannot be reversed against you weeks later. The flip side is that refunds are yours to issue deliberately, by sending funds back.',
+  },
+  {
+    q: 'Is this production-ready?',
+    a: 'The widget and SDK are complete and tested end to end, including against a live local deployment. The Tectonic contracts they settle against are not — they are pre-audit and not yet on a public network. Treat StablePay as ready to integrate and pilot, and watch the networks table above for the deployment that makes it ready to ship.',
+  },
+]
+
+export const Faq = () => (
+  <section id="faq" className="scroll-mt-24 border-t border-line bg-surface-subtle py-20 md:py-28">
+    <div className="container">
+      <SectionHeading eyebrow="FAQ" title="The questions merchants actually ask." />
+
+      <div className="mx-auto mt-14 max-w-3xl space-y-3">
+        {faqs.map((faq, i) => (
+          <Reveal key={faq.q} delay={Math.min(i, 3) * 0.05}>
+            <details className="group card overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-[1.0625rem] font-medium text-ink-900 transition hover:bg-surface-tint md:px-6 md:py-5">
+                {faq.q}
+                <ChevronDown className="h-5 w-5 shrink-0 text-ink-300 transition-transform duration-300 group-open:rotate-180" />
+              </summary>
+              <div className="px-5 pb-5 md:px-6 md:pb-6">
+                <p className="max-w-2xl text-[0.9375rem] leading-relaxed text-ink-500">{faq.a}</p>
+              </div>
+            </details>
+          </Reveal>
+        ))}
+      </div>
+
+      <Reveal delay={0.1}>
+        <p className="mt-10 text-center text-[0.9375rem] text-ink-400">
+          Still have a question?{' '}
+          <a
+            href={`${site.repo}/issues`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-brand-600 underline-offset-4 transition hover:text-brand-700 hover:underline"
+          >
+            Open an issue on GitHub
+          </a>{' '}
+          — we answer them there in public.
+        </p>
+      </Reveal>
+    </div>
+  </section>
+)
+
+export default Faq
