@@ -28,17 +28,7 @@ export const Hero = () => (
     <div className="container relative pb-16 pt-14 md:pb-24 md:pt-20 lg:pb-28 lg:pt-24">
       <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,460px)] lg:gap-10">
         <div className="max-w-2xl">
-          <motion.a
-            {...fade(0)}
-            href="#tectonic"
-            className="eyebrow hover:border-ink-300 hover:text-ink-700"
-          >
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold-400 opacity-75" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-gold-500" />
-            </span>
-            Open source · built on the Tectonic protocol
-          </motion.a>
+
 
           <motion.h1 {...fade(0.06)} className="mt-6 text-display-xl">
             Accept stablecoins <span className="text-brand-500">without a payment processor</span>.
